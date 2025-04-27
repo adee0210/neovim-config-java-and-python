@@ -31,7 +31,8 @@ local function play_current_song(playlist_type, files, is_single_file)
         vim.list_extend(cmd, files) -- Thêm toàn bộ danh sách file
     end
     vim.fn.jobstart(cmd, { detach = true })
-    vim.notify("Đang phát: " .. (is_single_file and vim.fn.fnamemodify(files, ":t") or "Playlist " .. playlist_type), vim.log.levels.INFO)
+    vim.notify("Đang phát: " .. (is_single_file and vim.fn.fnamemodify(files, ":t") or "Playlist " .. playlist_type),
+        vim.log.levels.INFO)
 end
 
 -- Hàm bắt đầu playlist
