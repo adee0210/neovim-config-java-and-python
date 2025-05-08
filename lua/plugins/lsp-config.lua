@@ -1,32 +1,32 @@
 return {
-    -- Mason.nvim
+    -- mason.nvim
     {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
         end,
     },
-    -- Mason-lspconfig.nvim
+    -- mason-lspconfig.nvim
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "pyright",  -- LSP cho Python
-                    "lua_ls",   -- Lua
-                    "ts_ls",    -- TypeScript/JavaScript
-                    "html",     -- HTML
-                    "cssls",    -- CSS
-                    "groovyls", -- Groovy
-                    "jdtls",    -- LSP cho Java
+                    "pyright",  -- lsp cho python
+                    "lua_ls",   -- lua
+                    "ts_ls",    -- typescript/javascript
+                    "html",     -- html
+                    "cssls",    -- css
+                    "groovyls", -- groovy
+                    "jdtls",    -- lsp cho java
                     "kotlin_language_server",
                 },
-                automatic_installation = true, -- Tự động cài đặt khi khởi động
+                automatic_installation = true, -- tự động cài đặt khi khởi động
             })
         end,
     },
-    -- Mason DAP (for debug adapters)
+    -- mason dap (for debug adapters)
     {
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = {
@@ -43,7 +43,7 @@ return {
             })
         end,
     },
-    -- Plugin nvim-lspconfig
+    -- plugin nvim-lspconfig
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -52,24 +52,24 @@ return {
             "mfussenegger/nvim-jdtls",
             "stevearc/conform.nvim",
             "akinsho/toggleterm.nvim",
-            "hrsh7th/cmp-nvim-lsp", -- Giữ lại để tích hợp với nvim-cmp
+            "hrsh7th/cmp-nvim-lsp", -- giữ lại để tích hợp với nvim-cmp
         },
         config = function()
-            -- Cấu hình conform.nvim để dùng black cho Python
+            -- cấu hình conform.nvim để dùng black cho python
             require("conform").setup({
                 formatters_by_ft = {
-                    python = { "black" }, -- Dùng black để định dạng Python
+                    python = { "black" }, -- dùng black để định dạng python
                 },
                 format_on_save = {
                     timeout_ms = 500,
-                    lsp_fallback = true, -- Dùng LSP nếu formatter không khả dụng
+                    lsp_fallback = true, -- dùng lsp nếu formatter không khả dụng
                 },
             })
 
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- Cấu hình LSP
+            -- cấu hình lsp
             require("config.pyright").setup_pyright()
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
@@ -86,25 +86,26 @@ return {
                 root_dir = lspconfig.util.root_pattern(".git", "build.gradle.kts", "pom.xml"),
             })
 
-            -- Phím tắt LSP
-            vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, { desc = "Tài liệu khi di chuột qua mã" })
-            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Đi đến định nghĩa mã" })
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Hành động mã" })
+            -- phím tắt lsp
+            vim.keymap.set("n", "<leader>ch", vim.lsp.buf.hover, { desc = "tài liệu khi di chuột qua mã" })
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "hành động mã" })
             vim.keymap.set("n", "<leader>cr", require("telescope.builtin").lsp_references,
-                { desc = "Đi đến tham chiếu mã" })
+                { desc = "đi đến tham chiếu mã" })
             vim.keymap.set("n", "<leader>ci", require("telescope.builtin").lsp_implementations,
-                { desc = "Đi đến triển khai mã" })
-            vim.keymap.set("n", "<leader>cR", vim.lsp.buf.rename, { desc = "Đổi tên mã" })
-            vim.keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, { desc = "Đi đến khai báo mã" })
+                { desc = "đi đến triển khai mã" })
+            vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "đổi tên mã" })
+            vim.keymap.set("n", "<leader>cd", vim.lsp.buf.declaration, { desc = "đi đến khai báo mã" })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition,
+                { desc = "Đi đến định nghĩa", noremap = true, silent = true })
 
-            -- Autocommands
-            vim.api.nvim_create_autocmd("FileType", {
+            -- autocommands
+            vim.api.nvim_create_autocmd("filetype", {
                 pattern = "java",
                 callback = function()
                     require("config.jdtls").setup_jdtls()
                 end,
             })
-            vim.api.nvim_create_autocmd("FileType", {
+            vim.api.nvim_create_autocmd("filetype", {
                 pattern = { "kotlin", "kts" },
                 callback = function()
                     require("config.jdtls").setup_kotlin()
@@ -113,4 +114,3 @@ return {
         end,
     },
 }
-
