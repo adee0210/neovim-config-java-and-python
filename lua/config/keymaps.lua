@@ -28,4 +28,3 @@ vim.keymap.set("n", "<leader>wh", ":split<cr>", { desc = "Window Chia ngang màn
 -- Giữ nguyên chế độ chọn khi thụt lề dòng
 vim.keymap.set("v", "<", "<gv", { desc = "Thụt lề trái trong chế độ chọn" })
 vim.keymap.set("v", ">", ">gv", { desc = "Thụt lề phải trong chế độ chọn" })
-

@@ -9,13 +9,13 @@ return {
                 enable = true,
                 strategy = rainbow_delimiters.strategy["global"],
                 query = {
-                    [""] = "rainbow-delimiters",      -- Query mặc định
-                    tsx = "rainbow-parens",           -- Dành riêng cho .tsx
-                    javascript = "rainbow-parens",    -- Dành riêng cho .js
+                    [""] = "rainbow-delimiters",   -- Query mặc định
+                    tsx = "rainbow-parens",        -- Dành riêng cho .tsx
+                    javascript = "rainbow-parens", -- Dành riêng cho .js
                 },
                 hlgroups = {
                     "#FF6B6B", -- Đỏ tươi (Red)
-                    "#4ECDC4", -- Cyan ngọc (Turquoise) 
+                    "#4ECDC4", -- Cyan ngọc (Turquoise)
                     "#FFD700", -- Vàng ánh kim (Gold)
                     "#FF69B4", -- Hồng phấn (Hot Pink)
                     "#7FFF00", -- Xanh chartreuse (Chartreuse)

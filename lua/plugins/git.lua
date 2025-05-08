@@ -5,24 +5,24 @@ return {
         config = function()
             require("gitsigns").setup({
                 signs = {
-                    add = { text = "│" },          -- Dấu thêm dòng
-                    change = { text = "│" },       -- Dấu thay đổi
-                    delete = { text = "_" },       -- Dấu xóa dòng
-                    topdelete = { text = "‾" },    -- Dấu xóa đầu
+                    add = { text = "│" }, -- Dấu thêm dòng
+                    change = { text = "│" }, -- Dấu thay đổi
+                    delete = { text = "_" }, -- Dấu xóa dòng
+                    topdelete = { text = "‾" }, -- Dấu xóa đầu
                     changedelete = { text = "~" }, -- Dấu thay đổi + xóa
                 },
-                signcolumn = true,           -- Hiển thị dấu hiệu trên gutter
-                numhl = false,               -- Không tô sáng số dòng
-                linehl = false,              -- Không tô sáng toàn dòng
-                word_diff = false,           -- Không bật diff từng từ
-                current_line_blame = true,   -- Hiển thị blame inline cho dòng hiện tại
+                signcolumn = true, -- Hiển thị dấu hiệu trên gutter
+                numhl = false, -- Không tô sáng số dòng
+                linehl = false, -- Không tô sáng toàn dòng
+                word_diff = false, -- Không bật diff từng từ
+                current_line_blame = true, -- Hiển thị blame inline cho dòng hiện tại
                 current_line_blame_opts = {
                     virt_text = true,
-                    virt_text_pos = "eol",   -- Đặt blame ở cuối dòng
-                    delay = 300,             -- Trễ 300ms để tránh nhấp nháy
+                    virt_text_pos = "eol", -- Đặt blame ở cuối dòng
+                    delay = 300,           -- Trễ 300ms để tránh nhấp nháy
                 },
                 preview_config = {
-                    border = "rounded",      -- Viền bo tròn cho preview
+                    border = "rounded", -- Viền bo tròn cho preview
                     style = "minimal",
                     relative = "cursor",
                 },

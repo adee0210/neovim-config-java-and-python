@@ -1,7 +1,7 @@
 return {
-    "nvim-lualine/lualine.nvim",  -- Plugin để tạo thanh trạng thái (statusline) tùy chỉnh
+    "nvim-lualine/lualine.nvim",       -- Plugin để tạo thanh trạng thái (statusline) tùy chỉnh
     dependencies = {
-        "nvim-tree/nvim-web-devicons",  -- Plugin cung cấp các biểu tượng (icons) cho file types
+        "nvim-tree/nvim-web-devicons", -- Plugin cung cấp các biểu tượng (icons) cho file types
     },
     config = function()
         -- Thiết lập lualine với các thuộc tính để định nghĩa giao diện của thanh trạng thái
@@ -66,7 +66,7 @@ return {
             tabline = {},
             winbar = {},
             inactive_winbar = {},
-            extensions = { "quickfix", "man", "fugitive" },  -- Mở rộng cho các chức năng như quickfix, man, fugitive
+            extensions = { "quickfix", "man", "fugitive" }, -- Mở rộng cho các chức năng như quickfix, man, fugitive
         })
     end,
 }

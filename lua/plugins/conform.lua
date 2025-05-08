@@ -7,7 +7,7 @@ return {
         -- Cấu hình các formatter theo loại file
         conform.setup({
             formatters_by_ft = {
-                lua = { "stylua" }, -- Format Lua bằng stylua
+                lua = { "stylua" },           -- Format Lua bằng stylua
                 javascript = { "prettierd" }, -- Format JS bằng prettierd
                 typescript = { "prettierd" },
                 javascriptreact = { "prettierd" },
